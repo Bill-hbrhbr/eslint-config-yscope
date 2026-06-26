@@ -4,6 +4,7 @@ import ImportPlugin from "eslint-plugin-import";
 import ImportNewlinesPlugin from "eslint-plugin-import-newlines";
 import JsdocPlugin from "eslint-plugin-jsdoc";
 import NoAutofixPlugin from "eslint-plugin-no-autofix";
+import PerfectionistPlugin from "eslint-plugin-perfectionist";
 import SimpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 
 
@@ -17,6 +18,7 @@ const CommonConfig = {
         "import-newlines": ImportNewlinesPlugin,
         "jsdoc": JsdocPlugin,
         "no-autofix": NoAutofixPlugin,
+        "perfectionist": PerfectionistPlugin,
         "simple-import-sort": SimpleImportSortPlugin,
     },
     rules: {
@@ -275,6 +277,32 @@ const CommonConfig = {
             {var: "never", let: "never", const: "never"},
         ],
         "operator-assignment": ["error"],
+        "perfectionist/sort-jsx-props": [
+            "error",
+            {
+                customGroups: [
+                    {
+                        groupName: "callback-multiline",
+                        elementNamePattern: "^on[A-Z]",
+                        modifiers: ["multiline"],
+                    },
+                    {
+                        groupName: "callback",
+                        elementNamePattern: "^on[A-Z]",
+                    },
+                ],
+                groups: [
+                    "shorthand",
+                    "prop",
+                    "multiline",
+                    "callback",
+                    "callback-multiline",
+                ],
+                ignoreCase: true,
+                order: "asc",
+                type: "alphabetical",
+            },
+        ],
         "prefer-arrow-callback": ["error"],
         "prefer-const": [
             "error",
@@ -479,7 +507,7 @@ const CommonConfig = {
             {startLines: 1},
         ],
         "jsdoc/type-formatting": ["warn"],
-        "jsdoc/valid-types": ["warn"]
+        "jsdoc/valid-types": ["warn"],
     },
     settings: {
         jsdoc: {

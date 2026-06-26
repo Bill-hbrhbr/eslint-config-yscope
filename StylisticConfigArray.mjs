@@ -317,16 +317,7 @@ const StylisticConfigArray = [
             "@stylistic/jsx-pascal-case": ["error"],
             "@stylistic/jsx-props-no-multi-spaces": ["off"],
             "@stylistic/jsx-self-closing-comp": ["error"],
-            "@stylistic/jsx-sort-props": [
-                "error",
-                {
-                    callbacksLast: true,
-                    ignoreCase: true,
-                    locale: "auto",
-                    multiline: "last",
-                    shorthandFirst: true,
-                },
-            ],
+            "@stylistic/jsx-sort-props": ["off"],
             "@stylistic/jsx-tag-spacing": [
                 "error",
                 {
